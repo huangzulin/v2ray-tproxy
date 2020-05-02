@@ -1,11 +1,11 @@
 #!/bin/bash
-
+set -e
 # CLI arguments
 LOCAL=''
 LOCAL_INSTALL=''
 NETWORK_TYPE=''
 
-while [[ $# > 0 ]]; do
+while [[ $# -gt 0 ]]; do
     case "$1" in
         -l|--local)
         LOCAL="$2"
@@ -43,7 +43,7 @@ if [ ! -x /usr/bin/v2ray ]; then
 	fi
 fi
 
-read -p "选择网络类型?
+read -r -p "选择网络类型?
  1.ws 
  2.ws+tls
  选择：" NETWORK_TYPE
