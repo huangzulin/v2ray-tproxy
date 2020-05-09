@@ -176,13 +176,6 @@
       },
       {
         "type": "field",
-        "protocol": [
-          "bittorrent"
-        ],
-        "outboundTag": "direct"
-      },
-      {
-        "type": "field",
         "ip": [
           "geoip:private",
           "geoip:cn"
@@ -195,7 +188,12 @@
           "geosite:cn"
         ],
         "outboundTag": "direct"
-      }
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "network": "udp,tcp"
+      }  
     ]
   }
 }
