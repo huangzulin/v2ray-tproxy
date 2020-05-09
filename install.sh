@@ -36,7 +36,7 @@ if [ ! -x /usr/bin/curl ]; then
 fi
 if [ ! -x /usr/bin/v2ray ]; then
 	if [[ $LOCAL_INSTALL -eq 1 ]]; then
-		wget https://install.direct/go.sh && chmod +x ./go.sh && ./go.sh --local $LOCAL
+		chmod +x ./go.sh && ./go.sh --local $LOCAL
 		rm ./go.sh
 	else
 		bash <(curl -L -s https://install.direct/go.sh)
