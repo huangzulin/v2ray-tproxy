@@ -19,7 +19,7 @@ while [[ $# -gt 0 ]]; do
     shift # past argument or value
 done
 
-apt-get update
+
 
 if grep -q "#net.ipv4.ip_forward=1" /etc/sysctl.conf; then
     sed -i "s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g" "/etc/sysctl.conf"
@@ -32,7 +32,7 @@ fi
 
 #wget https://install.direct/go.sh && chmod +x ./go.sh && ./go.sh && rm ./go.sh
 if [ ! -x /usr/bin/curl ]; then
-	apt-get install curl -y
+	apt-get update && apt-get install curl -y
 fi
 if [ ! -x /usr/bin/v2ray ]; then
 	if [[ $LOCAL_INSTALL -eq 1 ]]; then
