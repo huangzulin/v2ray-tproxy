@@ -46,6 +46,7 @@ fi
 read -r -p "选择网络类型?
  1.ws 
  2.ws+tls
+ 3.h2
  选择：" NETWORK_TYPE
 
 
@@ -64,25 +65,36 @@ if [[ $NETWORK_TYPE -eq 1 ]]; then
 	sed -i "s/==ALTERID/$ALTERID/g" "/etc/v2ray/config.json"
 	sed -i "s#==HOST#$HOST#g" "/etc/v2ray/config.json"
 	sed -i "s#==PATH#$HOST_PATH#g" "/etc/v2ray/config.json"
-
 fi
 
 if [[ $NETWORK_TYPE -eq 2 ]]; then
 	cp ./config/ws-tls-config.json /etc/v2ray/config.json
 	read -r -p "请输入地址(ADDRESS): " ADDRESS
-	read -r -p "请输入端口(PORT): " PORT
 	read -r -p "请输入用户ID(USER_ID): " USER_ID
 	read -r -p "请输入额外ID(ALTERID): " ALTERID
 	read -r -p "请输入伪装域名(HOST): " HOST
 	read -r -p "请输入伪装路径(PATH): " HOST_PATH
 
 	sed -i "s/==ADDRESS/$ADDRESS/g" "/etc/v2ray/config.json"
-	sed -i "s/==PORT/$PORT/g" "/etc/v2ray/config.json"
 	sed -i "s/==USER_ID/$USER_ID/g" "/etc/v2ray/config.json"
 	sed -i "s/==ALTERID/$ALTERID/g" "/etc/v2ray/config.json"
 	sed -i "s#==HOST#$HOST#g" "/etc/v2ray/config.json"
 	sed -i "s#==PATH#$HOST_PATH#g" "/etc/v2ray/config.json"
+fi
 
+if [[ $NETWORK_TYPE -eq 3 ]]; then
+	cp ./config/h2-config.json /etc/v2ray/config.json
+	read -r -p "请输入地址(ADDRESS): " ADDRESS
+	read -r -p "请输入用户ID(USER_ID): " USER_ID
+	read -r -p "请输入额外ID(ALTERID): " ALTERID
+	read -r -p "请输入伪装域名(HOST): " HOST
+	read -r -p "请输入伪装路径(PATH): " HOST_PATH
+
+	sed -i "s/==ADDRESS/$ADDRESS/g" "/etc/v2ray/config.json"
+	sed -i "s/==USER_ID/$USER_ID/g" "/etc/v2ray/config.json"
+	sed -i "s/==ALTERID/$ALTERID/g" "/etc/v2ray/config.json"
+	sed -i "s#==HOST#$HOST#g" "/etc/v2ray/config.json"
+	sed -i "s#==PATH#$HOST_PATH#g" "/etc/v2ray/config.json"
 fi
 
 
