@@ -65,15 +65,14 @@
         "network": "h2",
         "security": "tls",
         "tlsSettings": {
-          "allowInsecure": false,
+          "allowInsecure": true,
           "serverName": "==ADDRESS"
         },
-        "wsSettings": {
-          "connectionReuse": true,
+        "httpSettings": {
           "path": "==PATH",
-          "headers": {
-            "Host": "==HOST"
-          }
+          "host": [
+            "==HOST"
+          ]
         },
         "sockopt": {
           "mark": 255
